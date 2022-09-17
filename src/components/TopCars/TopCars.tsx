@@ -1,5 +1,5 @@
 import React from 'react';
-import {tab} from "@testing-library/user-event/dist/tab";
+import s from './TopCars.module.css'
 
 type arrTypeFromTopCars = {
     id: number
@@ -14,22 +14,25 @@ type TopCarsPropsType = {
 const TopCars = (props: TopCarsPropsType) => {
     return (
         <table>
+            <tbody>
+                <tr>
+                    <th>Brand</th>
+                    <th>Model</th>
+                </tr>
+            </tbody>
             {props.topCars.map((el, index) => {
                 return (
-                    <tbody key={el.id}>
+                    <tbody key={el.id} className={s.tbody}>
                         <tr>
-                            <th>Brand</th>
                             <th>{el.manufacturer}</th>
-                        </tr>
-                        <tr>
                             <td>{el.model}</td>
                         </tr>
                     </tbody>
                 )
             })}
         </table>
-                )
-            }
+    )
+}
 
 
-            export default TopCars;
+export default TopCars;
